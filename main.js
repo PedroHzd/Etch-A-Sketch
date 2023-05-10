@@ -1,1 +1,7 @@
-console.log(5 + 5);
+const blocks = document.querySelectorAll('.containerChildren');
+
+blocks.forEach((block) => {
+    block.addEventListener('click', () => {
+        block.style.backgroundColor = 'white';
+    });
+});

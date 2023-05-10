@@ -1,7 +1,25 @@
 body {
     background-color: black;
+    color: white;
+    box-sizing: border-box;
 }
 
-body {
-    color: white;
+.container {
+    border: 5px solid CornflowerBlue;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+}
+
+.containerRow {
+    display: flex;
+}
+
+.containerChildren {
+    border: 1px solid LightPink;
+    border-radius: 15px;
+    flex: 1;
+    max-width: 248.75px;
+    min-height: 248.75px;
 }
