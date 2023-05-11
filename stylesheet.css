@@ -18,7 +18,7 @@ body {
 
 .containerChildren {
     border: 1px solid LightPink;
-    border-radius: 15px;
+    border-radius: 5px;
     flex: 1;
     max-width: 248.75px;
     min-height: 248.75px;
@@ -37,5 +37,6 @@ button {
     font-size: 20px;
     Background-color: CornflowerBlue;
     color: black;
+    border-radius: 10px;
 }
 
