@@ -1,16 +1,9 @@
-const AllcontainerRows = document.querySelectorAll(".containerRow");
-const AllcontainerChildren = document.querySelectorAll(".containerChildren")
-
-const container = document.querySelector('.container');
-const containerRow = document.querySelector('.containerRow');
-
-
-const refreshPage = document.querySelector('.refreshPage');
-const changeGridBtn = document.querySelector('.changeGrid');
+const container = document.querySelector('.container'); // stays
+const refreshPage = document.querySelector('.refreshPage'); // stays
+const changeGridBtn = document.querySelector('.changeGrid'); // stays
 
 let numberUserWants = 5;
 
-//adds .containerRow to the container div
 let creatingNewRows = (numberOfRows) => {
     for (let i = 0; i < numberOfRows; i++) {
         let containerRow = document.createElement('div');
@@ -19,7 +12,6 @@ let creatingNewRows = (numberOfRows) => {
     }
 };
 
-// adds .containerChildren to the First containerRow
 let creatingNewBlocks = (numberOfBlocks, indexOfContainerRow) => {
     for (let i = 0; i < numberOfBlocks; i++) {
         let individualBlock = document.createElement('div');
@@ -36,11 +28,6 @@ let calculateWidthHeight = (numberOfBlocks) => {
     widthAndHeight = (1000 - (numberOfBlocks + 1)) / numberOfBlocks;
     return widthAndHeight;
 };
-
-let countingBlocks = (blocks) => {
-    let arrayOfBlocks = [...blocks];
-    return arrayOfBlocks.length;
-}
 
 function changeColors() {
     const blocks = document.querySelectorAll('.containerChildren');
