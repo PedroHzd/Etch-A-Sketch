@@ -23,3 +23,19 @@ body {
     max-width: 248.75px;
     min-height: 248.75px;
 }
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+}
+
+button {
+    padding: 25px 50px;
+    margin: 50px;
+    font-size: 20px;
+    Background-color: CornflowerBlue;
+    color: black;
+}
+
