@@ -2,8 +2,6 @@ const container = document.querySelector('.container'); // stays
 const refreshPage = document.querySelector('.refreshPage'); // stays
 const changeGridBtn = document.querySelector('.changeGrid'); // stays
 
-let numberUserWants = 5;
-
 let creatingNewRows = (numberOfRows) => {
     for (let i = 0; i < numberOfRows; i++) {
         let containerRow = document.createElement('div');
@@ -20,13 +18,11 @@ let creatingNewBlocks = (numberOfBlocks, indexOfContainerRow) => {
     }
 };
 
-// gets a random number from 0 - 255 (inclusive)
+// gets a random number from 0 - 255 (inclusive) for the rgb colors
 let getRandomNumber = () => Math.floor(Math.random() * (255 - 0 + 1) + 0);
 
 let calculateWidthHeight = (numberOfBlocks) => {
-    let widthAndHeight = 0;
-    widthAndHeight = (1000 - (numberOfBlocks + 1)) / numberOfBlocks;
-    return widthAndHeight;
+    return (1000 - (numberOfBlocks + 1)) / numberOfBlocks;
 };
 
 function changeColors() {
@@ -39,31 +35,17 @@ function changeColors() {
     });
 }
 
-refreshPage.addEventListener('click', () => {
-    window.location.reload();
-});
-
-//changes the global variable numberUserWants based on a prompt
-changeGridBtn.addEventListener('click', () => {
-    let checkForNumber = prompt("How many squares do you want on a row?");
-    if (checkForNumber <= 100 && checkForNumber > 0) {
-        numberUserWants = checkForNumber;
-    } else {
-        alert("That wasn't a positive number!");
-    }
-});
-
 function createNewGrid(totalRows) {
-    if (totalRows !== 4 && totalRows > 4) {
-        creatingNewRows(totalRows - 4);
+    if (totalRows > 2) {
+        creatingNewRows(totalRows - 2);
         let arrayOfRows = [...document.querySelectorAll(".containerRow")];
-        let newBlocks = totalRows - 4;
+        let newBlocks = totalRows - 2;
 
         for (let i = 0; i < totalRows; i++) {
             creatingNewBlocks(newBlocks, arrayOfRows[i]);
         }
 
-        for (let i = 4; i < (totalRows); i++) {
+        for (let i = 2; i < (totalRows); i++) {
             creatingNewBlocks((totalRows - newBlocks), arrayOfRows[i]);
         }
 
@@ -75,8 +57,25 @@ function createNewGrid(totalRows) {
     }
 }
 
-createNewGrid(10);
+refreshPage.addEventListener('click', () => {
+    window.location.reload();
+});
+
+changeGridBtn.addEventListener('mouseover', () => {
+    window.location.reload();
+})
+
+changeGridBtn.addEventListener('click', () => {
+    let checkForNumber = prompt("How many squares do you want on a row?");
+    let numberUserWants;
+
+    if (checkForNumber <= 100 && checkForNumber > 0) {
+        numberUserWants = parseInt(checkForNumber);
+        createNewGrid(numberUserWants);
+        changeColors();
+    } else {
+        alert("That wasn't a positive number!");
+    }
+});
+
 changeColors();
-
-
-
